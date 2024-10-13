@@ -12,7 +12,7 @@ const near=0.1;
 const far=10;
 
 const camera=new THREE.PerspectiveCamera(fov,aspect,near,far);
-camera.position.z=2;
+camera.position.z=3;
 
 
 const scene=new THREE.Scene();
@@ -22,7 +22,7 @@ const control=new OrbitControls(camera,renderer.domElement);
 control.enableDamping=true;
 control.dampingFactor=0.03;
 
-const geometry = new THREE.IcosahedronGeometry( 1, 3);
+const geometry = new THREE.IcosahedronGeometry( 1, 10);
 const material = new THREE.MeshStandardMaterial( { color: 0xffffff, flatShading:true } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
@@ -46,7 +46,6 @@ let isMouseOver = false;
 document.addEventListener('mousemove', onMouseMove, false);
 
 function onMouseMove(event) {
-    // Calculate normalized mouse coordinates
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     
